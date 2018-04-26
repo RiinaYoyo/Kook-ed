@@ -1,25 +1,34 @@
 import React from 'react';
 import {View} from 'react-native';
-import Styles from './src/assets/Styles'
+import firebase from 'firebase'
+import RootTab from './src/component/RootTab';
+import Header from './src/component/Header';
+import Styles from './src/assets/Styles';
+import config from './src/conf/firebaseConf';
 
-import Now from './src/views/Now.js'
-import Loader from './src/views/Loader.js';
-import Home from './src/views/home.js';
-import { TabNavigator } from 'react-navigation';
 
 export default class App extends React.Component {
+
+
+  //initialise firebase
+  constructor(props){
+    super(props);
+    // Initialize Firebase
+    firebase.initializeApp(config);
+  }
+
+  //
+  state={
+
+  }
+
   render() {
     return (
+      <View style={Styles.app}>
+        <Header/>
         <RootTab/>
+      </View>
     );
   }
 }
 
-const RootTab = TabNavigator({
-    Home: {
-      screen: Home,
-    },
-    Now: {
-      screen: Now,
-    },
-});

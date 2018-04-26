@@ -7,7 +7,7 @@ export default class Loader extends React.Component {
   render() {
     return (
       <View style={Styles.container}>
-        <Image source={require('../assets/kooked.jpg')}/>
+        <Image source={require('../assets/kooked.jpg')} style={Styles.loadingLogo}/>
         <ActivityIndicator size="large"/>
       </View>
     );
